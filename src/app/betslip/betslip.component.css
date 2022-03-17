@@ -1,0 +1,12 @@
+.selectedBall{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0.2em;
+    font-size:x-large;
+    border-color: white;
+    border-style: groove;
+    border-width: 2px;
+    text-align: center;
+}

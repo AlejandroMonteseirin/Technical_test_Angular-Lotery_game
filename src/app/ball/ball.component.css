@@ -1,0 +1,30 @@
+.bola{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0.2em;
+    font-size:x-large;
+    border-color: white;
+    border-style: groove;
+    border-width: 2px;
+    animation-duration: 0.1s;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+    animation-name: selectAnimation;
+    animation-direction: alternate;
+
+}
+
+.bola:hover {
+    color: white;
+    border-color: black;
+}
+
+/* click animation */ 
+@keyframes selectAnimation {
+    0% {border-style: groove;}
+    
+    100% {border-style: dashed;}
+}
+

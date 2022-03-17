@@ -1,0 +1,36 @@
+
+
+<div style="margin-top: 5em;text-align: center;">
+    <span *ngFor="let bola of selectedBalls">
+        <span class="selectedBall" [style.background-color]="arrayColours[bola]" >  {{bola}} </span>
+    </span>
+    <span *ngFor="let in of counter(maxBalls-selectedBalls.length) ">
+        <span class="selectedBall" [style.background-color]="'rgba(157, 157, 157, 0.21)'" >  -   </span>
+    </span>
+</div>
+
+
+<div style="text-align: center;margin-top: 2em;" *ngIf="selectedBalls.length>0">
+    <button pButton pRipple type="button" label="Reset" class="p-button-rounded p-button-warning" (click)="reset()"></button>
+</div>
+<div  style="text-align: center;margin-top: 2em;"  *ngIf="selectedBalls.length==0"> <!-- Fake button with visibility in hidden to prevent movement of the DOM-->
+    <button pButton style="visibility: hidden" pRipple type="button" label="Reset" class="p-button-rounded p-button-warning" ></button>
+</div>
+
+
+<div style="margin-top:5em; text-align: center;">
+    <div style="background-color: gainsboro;display: inline-block;padding: 0.5em;">x{{selectedBalls.length}}</div>
+    <p-inputNumber [(ngModel)]="euros" mode="currency" currency="EUR" [size]="4"></p-inputNumber>
+    <button pButton pRipple type="button" label="Ok" class="p-button-raised" style="margin-left: 1em;" (click)="refreshTotal()"></button>
+</div>
+
+<div style="border-top:3px solid grey; margin-top: 1em;margin-right: 1em;">
+</div>
+
+<div style="text-align: center; margin-top: 1em;font-size: x-large;font-weight: 500;">
+    Total: {{total}}€
+</div>
+<div style="text-align: center;margin-top: 1em;">
+    <button pButton pRipple type="button" label="Place Bet" class="p-button-raised" style="width: 80%" (click)="startGame()"></button>
+
+</div>

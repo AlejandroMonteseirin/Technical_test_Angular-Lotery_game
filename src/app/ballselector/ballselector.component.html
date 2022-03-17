@@ -1,0 +1,13 @@
+<div class="ballselector">
+
+    <div style="max-height: 5em;" ><div class="title">Lottery game!</div></div>
+
+    <div class="totallycentered">
+        <div style="margin-bottom: 1em;font-size: large;font-weight: 600;">Numbers:</div>
+
+        <span *ngFor="let bola of ballNumber">
+            <app-ball [number]="bola" [color]="arrayColours[bola]"></app-ball>
+        </span>
+    </div>
+
+</div>

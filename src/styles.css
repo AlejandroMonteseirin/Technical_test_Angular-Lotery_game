@@ -1,0 +1,14 @@
+/* global styles */
+body{
+    background-color: #E5E5E5;
+    font-family: system-ui;
+
+}
+
+/*Override for p-inputMask*/
+.inputClass{
+    width: 90% !important;
+    border-radius: 10px !important;
+    padding: 1em !important;
+    
+}
