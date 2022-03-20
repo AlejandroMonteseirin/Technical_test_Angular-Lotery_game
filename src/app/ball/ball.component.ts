@@ -86,7 +86,8 @@ export class BallComponent implements OnInit {
     }
     //animation in click
     if(div){
-      div.style.animationPlayState="running";
+      div.style.animation="selectAnimation 0.2s";
+      div.style.animationIterationCount="6";
       setTimeout(() => {this.stopAnimation(div)}, 800);
     }
 
@@ -97,8 +98,7 @@ export class BallComponent implements OnInit {
 
   //stop the animation
   stopAnimation(element:any){
-    element.style.animationPlayState="paused";
-    element.style.borderStyle= "groove";
+    element.style.animation="none";
   }
   
 }
