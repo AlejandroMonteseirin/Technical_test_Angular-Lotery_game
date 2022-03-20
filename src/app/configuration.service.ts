@@ -23,7 +23,6 @@ export class ConfigurationService {
 
   //generate colours using the config parameter
   getArrayColours(){
-    let balls=this.getBallArray();
     let arrayResponse:Array<string>=[];
     let index=0;
     for (var i = 0; i <= this.ballNumber; i++) {

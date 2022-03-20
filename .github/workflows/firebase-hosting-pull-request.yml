@@ -14,6 +14,6 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: >-
-            ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ANGULAR_PRUEBATECNICA_ALEX_M_P
+            ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ANGULAR_PRUEBA_TECNICA_LOTERIA
             }}
-          projectId: angular-pruebatecnica-alex-m-p
+          projectId: angular-prueba-tecnica-loteria

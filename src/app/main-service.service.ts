@@ -12,9 +12,9 @@ export class MainServiceService {
 
   constructor() { }
 
-  private subjectBalls = new Subject<any>();
-  private subjectDisable = new Subject<any>();
-  private subjectPlaying = new Subject<any>();
+  public subjectBalls = new Subject<any>();
+  public subjectDisable = new Subject<any>();
+  public subjectPlaying = new Subject<any>();
 
   sendBall(number: Number) {
       this.subjectBalls.next({  number });

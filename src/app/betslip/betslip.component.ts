@@ -113,8 +113,8 @@ export class BetslipComponent  {
     if(this.total>0 && this.euros>=this.minimumBet){
       this.mainService.changePlaying(0); //0 is start the spinner
     }
+    this.end=true;
     await this.delay(3000);
-    console.log("fin");
     var winner=this.chooseWinner();
     if(winner==false){
       return ;
@@ -128,7 +128,6 @@ export class BetslipComponent  {
       this.toastservice.add({severity:'error', summary: 'No enough balls in configuration, change ballNumber in the config', detail: '',life:3000});
       return false;
     }
-    this.end=true;
 
     const winnerBall = Math.floor(Math.random() * this.numberOfBalls) + 1
     console.log("selected ball is "+winnerBall);
