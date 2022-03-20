@@ -18,7 +18,7 @@ These values are shared to the component using the configuration.service.ts
 - ParentComponent: It controls the responsive and is the enter point to the application
 - BallSelectorComponent: It contains the balls component and show the results when the game is over.
 - BallComponent: It is the balls that can be selected, it comunicate to the betSlipComponent adding or removing balls, also can be disabled by a subscription and have a little animation when clicked or reseted.
-BetSlipComponent: It controls the balls selected and all the currency logic. It communicates to the rest of the components, sending info about the actual status of the game.
+- BetSlipComponent: It controls the balls selected and all the currency logic. It communicates to the rest of the components, sending info about the actual status of the game.
 
 
 ## Component communication
