@@ -1,6 +1,7 @@
-<div class="ballselector">
+<div class="ballselector"  [ngStyle]="{'height': mobile ? '100%' : '90vh'}" >
 
-    <div style="max-height: 5em;" ><div class="title">Lottery game!</div></div>
+    <div style="max-height: 5em;" *ngIf="!mobile"><div class="title">Lottery game!</div></div>
+    <div style="text-align: center;" *ngIf="mobile"><h2>Lottery game!</h2></div>
 
     <div class="totallycentered" [ngClass]="{'playing': playing || winMessage!=null}" >
         <div style="margin-bottom: 1em;font-size: large;font-weight: 600;">Numbers:</div>
@@ -24,7 +25,7 @@
         <h3>The winner ball is <span class="winnerBall" [style.background-color]="arrayColours[winMessage.state.ball]" >  {{winMessage.state.ball}} </span></h3> 
         <span *ngIf="winMessage.state.win"><h1>You WIN</h1></span>
         <span *ngIf="!winMessage.state.win"><h1>You LOSE</h1></span>
-        <span ><h2>Your <span style="color: green;" *ngIf="winMessage.state.profit>0"><b>Profit</b></span> <span style="color: red;" *ngIf="winMessage.state.profit<0"><b>Losses</b></span>  are {{winMessage.state.profit}}€</h2></span>
+        <span ><h2>Your <span style="color: green;" *ngIf="winMessage.state.profit>0"><b>Profit</b></span> <span style="color: red;" *ngIf="winMessage.state.profit<0"><b>Losses</b></span>  are {{winMessage.state.profit | number : '1.2-2'}}€</h2></span>
 
         <div style="text-align: center;margin-top: 3em;">
             <button pButton pRipple type="button" label="Reset GAME" class="p-button-raised" style="width: 50%" (click)="reset()"></button>

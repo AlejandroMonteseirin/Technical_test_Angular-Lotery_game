@@ -8,7 +8,7 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 
 export class AppComponent {
-  title = 'AlejandroMonteseirin_checkout_form';
+  title = 'AlejandroMonteseirin_LotteryGame';
 
   constructor(private primengConfig: PrimeNGConfig) {}
 

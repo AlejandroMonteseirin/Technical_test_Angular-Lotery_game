@@ -12,20 +12,20 @@ export class MainServiceService {
 
   constructor() { }
 
-  private subject = new Subject<any>();
+  private subjectBalls = new Subject<any>();
   private subjectDisable = new Subject<any>();
   private subjectPlaying = new Subject<any>();
 
   sendBall(number: Number) {
-      this.subject.next({  number });
+      this.subjectBalls.next({  number });
   }
 
   clearBalls() {
-      this.subject.next(null);//send a null ball, that delete all balls of the betslip component
+      this.subjectBalls.next(null);//send a null ball, that delete all balls of the betslip component
   }
 
   getBalls(): Observable<any> {
-      return this.subject.asObservable();
+      return this.subjectBalls.asObservable();
   }
 
 

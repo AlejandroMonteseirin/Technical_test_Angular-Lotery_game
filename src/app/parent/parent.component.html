@@ -6,16 +6,16 @@
 <div *ngIf="!mobile" class="mainview">
     <div class="grid">
         <div class="col-8">
-            <app-ballselector></app-ballselector>
+            <app-ballselector [mobile]="false"></app-ballselector>
         </div>
         <div class="col-4">
-            <app-betslip></app-betslip>
+            <app-betslip [mobile]="false"></app-betslip>
         </div>
     </div>
 
 </div>
 
 <div *ngIf="mobile">
-    <app-ballselector></app-ballselector>
-    <app-betslip></app-betslip>
+    <app-ballselector [mobile]="true"></app-ballselector>
+    <app-betslip [mobile]="true"></app-betslip>
 </div>

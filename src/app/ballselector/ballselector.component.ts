@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ConfigurationService } from '../configuration.service';
 import { MainServiceService } from '../main-service.service';
 
@@ -8,7 +8,7 @@ import { MainServiceService } from '../main-service.service';
   styleUrls: ['./ballselector.component.css']
 })
 export class BallselectorComponent  {
-
+  @Input() mobile = false;
 
   ballNumber;
   arrayColours:Array<string>;
@@ -16,7 +16,7 @@ export class BallselectorComponent  {
   playing:boolean=false;//spinner
   winMessage:any=null;//win ball
   subscriptionPlaying;
-  constructor(conf:ConfigurationService, mainService:MainServiceService) { 
+  constructor(conf:ConfigurationService, private mainService:MainServiceService) { 
     this.ballNumber=conf.getBallArray();
     this.arrayColours=conf.getArrayColours();
 
@@ -34,9 +34,16 @@ export class BallselectorComponent  {
     });
   }
 
-  //restart the app
+  ngOnDestroy() {
+    this.subscriptionPlaying.unsubscribe()
+  }
+
+  //reset the game
   reset(){
-    window.location.reload();
+    this.playing=false;
+    this.winMessage=null;
+    this.mainService.clearBalls();
+
   }
 
 }

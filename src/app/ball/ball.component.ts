@@ -63,7 +63,7 @@ export class BallComponent implements OnInit {
 
 
   //when clicked
-  seleccionar(){
+  select(){
     if(!this.disabled || this.selected){
       this.mainService.sendBall(this.number);
       this.animate();

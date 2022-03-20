@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {MessageService} from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { ConfigurationService } from '../configuration.service';
@@ -10,6 +10,7 @@ import { MainServiceService } from '../main-service.service';
   styleUrls: ['./betslip.component.css']
 })
 export class BetslipComponent  {
+  @Input() mobile = false;
 
 
   selectedBalls:Array<number>=[]
@@ -58,8 +59,12 @@ export class BetslipComponent  {
         
 
       } else {
-        // clear balls when null message received
+        // clear balls when null message received (from restart buttom when game ended)
+        this.euros=0;
+        this.total=0;
+        this.reset(false)
         this.selectedBalls = [];
+        this.end=false;
       }},
       error: (e) => console.error(e)
     });
@@ -74,9 +79,11 @@ export class BetslipComponent  {
 
  
 
-  reset(){
+  reset(fromButton:boolean){ //if is from button emit to the balls components to reset its states
     this.refreshTotal(false)
-    this.mainService.clearBalls()
+    if(fromButton){
+      this.mainService.clearBalls()
+    }
     if(this.isDisabled){
       this.mainService.disableMorePicks(false);
     }

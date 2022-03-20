@@ -28,10 +28,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'AlejandroMonteseirin_LoteryGame'`, () => {
+  it(`should have as title 'AlejandroMonteseirin_LotteryGame'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('AlejandroMonteseirin_LoteryGame');
+    expect(app.title).toEqual('AlejandroMonteseirin_LotteryGame');
   });
 
 });
