@@ -56,8 +56,5 @@ describe('BetslipComponent', () => {
 
     expect(component.euros).toBe(0);
 
-
-
-    
   });
 });
