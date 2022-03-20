@@ -16,17 +16,25 @@ export class BetslipComponent  {
   subscriptionBalls: Subscription;
   arrayColours;
   maxBalls:number=0;
-
+  numberOfBalls; // total ball number (default 10)
   isDisabled=false;
-
+  profitconfig=0;
 
 
   euros=0;
   total=0;
 
+  minimumBet=0;
+  end=false;//the game ended
+
+
   constructor(private mainService:MainServiceService, private toastservice:MessageService,conf:ConfigurationService) {
     this.arrayColours=conf.getArrayColours();
-    this.maxBalls=conf.getMaxNumberOfBalls()
+    this.maxBalls=conf.getMaxNumberOfBalls();
+    this.numberOfBalls=conf.getNumberOfBalls();
+    this.minimumBet=conf.getMinimunBet();
+    this.profitconfig=conf.getProfit();
+
     this.subscriptionBalls = mainService.getBalls().subscribe({
       next: (ball) => {
       if (ball) {
@@ -46,7 +54,8 @@ export class BetslipComponent  {
           }
           this.selectedBalls.push(ball.number);
         }
-        this.refreshTotal();
+        this.refreshTotal(false);
+        
 
       } else {
         // clear balls when null message received
@@ -66,6 +75,7 @@ export class BetslipComponent  {
  
 
   reset(){
+    this.refreshTotal(false)
     this.mainService.clearBalls()
     if(this.isDisabled){
       this.mainService.disableMorePicks(false);
@@ -78,12 +88,59 @@ export class BetslipComponent  {
   }
 
 
-  refreshTotal(){
-    this.total=this.euros*this.selectedBalls.length;
+  refreshTotal(isFromButon:boolean){
+    if(this.euros<this.minimumBet){
+      if(isFromButon){
+        this.toastservice.add({severity:'error', summary: 'The minimin bet per ball is '+this.minimumBet+"€", detail: '',life:3000});
+      }
+      this.euros=0;
+      this.total=0;
+    }else{
+      this.total=this.euros*this.selectedBalls.length;
+    }
+
   }
 
 
-  startGame(){
+  async startGame(){
+    if(this.total>0 && this.euros>=this.minimumBet){
+      this.mainService.changePlaying(0); //0 is start the spinner
+    }
+    await this.delay(3000);
+    console.log("fin");
+    var winner=this.chooseWinner();
+    if(winner==false){
+      return ;
+    }
+    this.mainService.changePlaying(winner); //the winner ball
 
   }
+
+  chooseWinner(){
+    if(this.numberOfBalls<2){
+      this.toastservice.add({severity:'error', summary: 'No enough balls in configuration, change ballNumber in the config', detail: '',life:3000});
+      return false;
+    }
+    this.end=true;
+
+    const winnerBall = Math.floor(Math.random() * this.numberOfBalls) + 1
+    console.log("selected ball is "+winnerBall);
+
+
+    var profit=-this.total;
+    var win=this.selectedBalls.includes(winnerBall);
+    if(win){
+      profit=profit+this.euros*this.profitconfig;
+    }
+
+    return {ball:winnerBall,win:win,profit:profit};
+  }
+
+
+
+  //auxiliar delay function
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
 }

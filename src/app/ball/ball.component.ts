@@ -52,11 +52,12 @@ export class BallComponent implements OnInit {
     });
   }
 
+  //unsubscribe in destroy
   ngOnDestroy() {
     this.subscriptionBalls.unsubscribe()
     this.subscriptionDisable.unsubscribe()
-
   }
+  
   ngOnInit(): void {
   }
 
@@ -67,18 +68,12 @@ export class BallComponent implements OnInit {
       this.mainService.sendBall(this.number);
       this.animate();
     }
-  
-    
-
   }
 
 
   //animation of clicked or reset
   animate(){
     var div=document.getElementById('bola'+this.number);
-
-
-
     this.selected=!this.selected;
     if(this.selected){
       if(div){

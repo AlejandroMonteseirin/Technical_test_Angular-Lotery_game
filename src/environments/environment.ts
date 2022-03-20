@@ -3,14 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ballNumber:10, // number of balls that you can choose (default 10)
+  arrayColours:["#f79256","#fbd1a2","#7dcfb6","#00b2ca","#ff99c8"], // colour array that alternate in the balls
+  maxNumberOfBalls:8,  //Max number of ball you can select in one round
+  profit:1.5, //Profit in case of wining (Per ball)
+  minimunBet:5.0, //minimun bet per ball (NOT TOTAL)
 };
 
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+

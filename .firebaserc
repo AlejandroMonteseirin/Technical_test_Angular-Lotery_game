@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "angular-pruebatecnica-alex-m-p"
+    "default": "angular-prueba-tecnica-loteria",
+    "Lottery Angular": "angular-prueba-tecnica-loteria"
   }
 }

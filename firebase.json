@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/alejandro-monteseirin-lottery_game",
     "ignore": [
       "firebase.json",
       "**/.*",

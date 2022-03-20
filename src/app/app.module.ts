@@ -17,6 +17,7 @@ import { BallselectorComponent } from './ballselector/ballselector.component';
 import { BetslipComponent } from './betslip/betslip.component';
 import { BallComponent } from './ball/ball.component';
 import {InputNumberModule} from 'primeng/inputnumber';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {InputNumberModule} from 'primeng/inputnumber';
     ButtonModule, //ngPrime buttons
     ToastModule, //ngPrime Toasts
     FormsModule,
-    InputNumberModule
+    InputNumberModule,
+    ProgressSpinnerModule//spiner
   ],
   providers: [
     MessageService // ngPrimetoasts

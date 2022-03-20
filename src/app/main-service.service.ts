@@ -14,6 +14,7 @@ export class MainServiceService {
 
   private subject = new Subject<any>();
   private subjectDisable = new Subject<any>();
+  private subjectPlaying = new Subject<any>();
 
   sendBall(number: Number) {
       this.subject.next({  number });
@@ -35,6 +36,14 @@ export class MainServiceService {
   disableMorePicks(disable: boolean) {
     console.log("disable "+disable);
     this.subjectDisable.next({  disable });
+  }
+
+  getPlaying(){
+    return this.subjectPlaying.asObservable();
+  }
+
+  changePlaying(state:any){ //it can be a 0 for start the spinner or the winning object
+    this.subjectPlaying.next({  state });
   }
 
 }
