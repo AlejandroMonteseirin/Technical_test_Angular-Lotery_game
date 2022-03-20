@@ -1,7 +1,7 @@
 # Technical_test_Angular-Lotery_game
 Technical Test in Angular about a lottery game. Angular12, Karma Jasmine for testing and deployed in firebase. 
 
-Firebase deploy: https://angular-prueba-tecnica-loteria.web.app/
+Firebase deploy: https://angular-prueba-tecnica-loteria.web.app/ integrated with GitHub actions so it get deployed with every git push.
 
 ## Configurable parameters
 
