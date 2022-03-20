@@ -31,7 +31,8 @@ There are 3 subjects:
 
 ##  Testing:
 
-Using Karma Jasmine some core functionalities were tested automatically.
+Using Karma Jasmine components and services are tested automatically.
 The results are: 
 
-![KarmaResults](https://user-images.githubusercontent.com/33956661/159175932-6dbcf072-085c-4883-97da-00693a3549d6.png)
+![KarmaResults](https://user-images.githubusercontent.com/33956661/159177151-ae802c06-78c8-4069-99eb-18b6f16ee2a2.png)
+
