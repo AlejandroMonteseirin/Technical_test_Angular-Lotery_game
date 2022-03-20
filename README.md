@@ -33,3 +33,5 @@ There are 3 subjects:
 
 Using Karma Jasmine some core functionalities were tested automatically.
 The results are: 
+
+![KarmaResults](https://user-images.githubusercontent.com/33956661/159175932-6dbcf072-085c-4883-97da-00693a3549d6.png)
